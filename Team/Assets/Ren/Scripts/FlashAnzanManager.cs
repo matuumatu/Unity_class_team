@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Day9;
 
 public class FlashAnzanManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class FlashAnzanManager : MonoBehaviour
     public int GetPlayerAnswer() => playerAnswer;
     public bool HasAnswered() => hasAnswered;
 
+    [SerializeField] public AdManager admanager;
+
     // ‘¼‚ÌƒNƒ‰ƒX‚Ö‚Ì’Ê’m
     public event Action OnQuestionFinished;
     public event Action OnAnswerSubmitted;
@@ -39,6 +42,7 @@ public class FlashAnzanManager : MonoBehaviour
     private void Start()
     {
         countdownText.gameObject.SetActive(true);
+
         StartCoroutine(Countdown());
     }
 
@@ -66,8 +70,11 @@ public class FlashAnzanManager : MonoBehaviour
 
     private IEnumerator ShowNumbers()
     {
+        int adQuestionIndex = UnityEngine.Random.Range(0, questionCount);
+
         for (int i = 0; i < questionCount; i++)
         {
+
             int number =
                 UnityEngine.Random.Range(minNumber, maxNumber + 1);
 
@@ -75,6 +82,11 @@ public class FlashAnzanManager : MonoBehaviour
 
             numberText.text = number.ToString();
             numberText.gameObject.SetActive(true);
+
+            if (i == adQuestionIndex && admanager != null)
+            {
+                admanager.canShowAd = true;
+            }
 
             yield return new WaitForSeconds(displayTime);
 
