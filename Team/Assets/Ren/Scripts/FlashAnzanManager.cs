@@ -37,7 +37,7 @@ public class FlashAnzanManager : MonoBehaviour
 
     private void Start()
     {
-        countdownText.gameObject.SetActive(false);
+        countdownText.gameObject.SetActive(true);
         StartCoroutine(Countdown());
     }
 
@@ -112,13 +112,16 @@ public class FlashAnzanManager : MonoBehaviour
         numberText.gameObject.SetActive(false);
         countdownText.gameObject.SetActive(true);
 
-        // 3 ¨ 2 ¨ 1
-        for (int i = 3; i >= 1; i--)
+
+        string[] countdownNumbers = { "‡B", "‡A", "‡@" };
+
+        foreach (string number in countdownNumbers)
         {
-            countdownText.text = i.ToString();
+            countdownText.text = number;
 
             yield return new WaitForSeconds(countdownInterval);
         }
+
 
         // START! ‚ð•\Ž¦
         countdownText.text = "START!";
