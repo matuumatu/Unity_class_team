@@ -1,7 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class StartButton : MonoBehaviour
 {
+    [SerializeField]
+    private Button button = null;
     private RectTransform rectTransform;
 
     private bool is_init = false;
@@ -21,6 +26,8 @@ public class StartButton : MonoBehaviour
             return;
 
         is_init = true;
+
+        button.onClick.AddListener(OnClick);
     }
 
     // Update is called once per frame
@@ -32,15 +39,20 @@ public class StartButton : MonoBehaviour
             return;
         }
 
-        var position = rectTransform.position;
-        position.x = 0.0f;
-        position.y = Mathf.Lerp(INIT_POSITION_Y, MOVE_END_POSITION_Y, timer / move_duration);
-        rectTransform.position = position;
+        //var position = rectTransform.position;
+        //position.x = 0.0f;
+        //position.y = Mathf.Lerp(INIT_POSITION_Y, MOVE_END_POSITION_Y, timer / move_duration);
+        //rectTransform.position = position;
 
-        timer += Time.deltaTime;
-        timer = Mathf.Clamp(timer, 0, move_duration);
+        //timer += Time.deltaTime;
+        //timer = Mathf.Clamp(timer, 0, move_duration);
 
-        //Debug.Log(timer);
-        Debug.Log(rectTransform.position);
+        ////Debug.Log(timer);
+        //Debug.Log(rectTransform.position);
+    }
+
+    void OnClick()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
