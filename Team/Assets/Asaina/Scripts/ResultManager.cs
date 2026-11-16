@@ -41,11 +41,11 @@ public class ResultManager : MonoBehaviour
     public void Retry()
     {
         Debug.Log("リトライボタンが押されました！");
-        SceneManager.LoadScene("Result");
+        SceneManager.LoadScene("Game");
     }
 
     // タイトルへ戻る
-    public void GoToTitle()
+    public void ToTitle()
     {
         Debug.Log("タイトルボタンが押されました！");
         SceneManager.LoadScene("Title");
