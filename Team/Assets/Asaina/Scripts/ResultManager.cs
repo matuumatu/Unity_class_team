@@ -41,13 +41,13 @@ public class ResultManager : MonoBehaviour
     public void Retry()
     {
         Debug.Log("リトライボタンが押されました！");
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene("Result");
     }
 
     // タイトルへ戻る
     public void GoToTitle()
     {
         Debug.Log("タイトルボタンが押されました！");
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene("Title");
     }
 }
