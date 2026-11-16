@@ -2,6 +2,10 @@ using GoogleMobileAds.Api;
 using UnityEngine;
 namespace Day9
 {
+    /* 
+     * EventSystem ‚ª–³‚¢‚ÆL‚ª•Â‚¶‚È‚¢‚Å‚·B
+     */
+    
     public class AdManager : MonoBehaviour
     {
         [SerializeField] private RewardedAdService rewardedAd;

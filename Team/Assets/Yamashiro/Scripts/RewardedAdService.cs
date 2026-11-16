@@ -61,6 +61,16 @@ namespace Day9
 
                 // ƒ[ƒh¬Œ÷ 
                 this.rewardedAd = ad;
+
+                rewardedAd.OnAdFullScreenContentClosed += () =>
+                {
+                    Debug.Log("L‚ğ•Â‚¶‚½");
+                };
+
+                rewardedAd.OnAdFullScreenContentOpened += () =>
+                {
+                    Debug.Log("L‚ğŠJ‚¢‚½");
+                };
             });
         }
 
