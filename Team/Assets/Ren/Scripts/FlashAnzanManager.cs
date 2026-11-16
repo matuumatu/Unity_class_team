@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlashAnzanManager : MonoBehaviour
 {
@@ -103,6 +104,8 @@ public class FlashAnzanManager : MonoBehaviour
         GameResultData.PlayerAnswer=playerAnswer;
 
         OnAnswerSubmitted?.Invoke();
+
+        SceneManager.LoadScene("Result");
     }
 
 
